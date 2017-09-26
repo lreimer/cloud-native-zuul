@@ -4,4 +4,14 @@ info:
 server:
   port: 8765
 
+management:
+  context-path: /admin
+
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 30000
