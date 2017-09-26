@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: cloud-native-zuul
+  cloud:
+    config:
+      enabled: true
+      failFast: true
+      retry:
+        initialInterval: 1500
+        maxInterval: 5000
+        maxAttempts: 5
+        multiplier: 1.5
+      discovery:
+        enabled: true
+        serviceId: CLOUD-NATIVE-CONFIG
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8765}
+    appGroupName: CLOUDNATIVE
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
