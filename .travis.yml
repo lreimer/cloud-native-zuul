@@ -1,5 +1,4 @@
 sudo: required
-
 language: java
 
 services:
@@ -10,9 +9,9 @@ jdk:
 
 env:
   global:
-    - DOCKER_EMAIL=tbd
-    - DOCKER_USER=tbd
-    - DOCKER_PASS=tbd
+    - secure: UqovmvAyJJ+dZMs62t7boCsLX9Qiy9m9T1wqb4DJ7VTX1Nyktj+1jDX87no88a6mL9NTrv0efPLTOCo2tra77jsRG68GDdVD00aybTHGi2EK44tHAKk3eJvl6zKF931Q3gJQNbI3ZPz6kj6/pNpkn9wAjja3MsU3e+Q8zdhm79MFQ/yfu12TlYmwXdk2XbA3Z8xVVROHyq9LAei9P73ZJrg8dcRdLJDejBX/wNk2JXxlpxyvV0/YuwO3d3duXJMxlFVXjo7VrlS4F93OpB0iKG7rtMCvNRaI8xwtPMKYm4c5qgAwKpZlHAInoQJmJolecLWkAa624j09SdE+JZ4WCf7wuRBcWeP+oYkr2Ks3oy3feXc22HHMxCYWcf5qtJFHTKXe7QQvfMYVDRhMMXvvMckGGcU3E7D7k8mM2mwFTKHo5UdqaXlVC0I4qC/GLQ9YbL6IB/9nB5kYGMdkmqqNE1ElZL1FqvjxgGrU7FUdlJcpudr8k1ADLbnJLBnIzXScLWvox/J3Ro0DaG2xIstTxFvPXWsrdpn3n3okLRxVi4u8Gu/YQBq3jesLQy9HlY2drzozpVfFtcnfXQqPpMfRwZ2IHHZxpmyfBrqtaB1gdNP1W8w74ST8tqFwvQWiTiEWXsB0ezjZmXz/eqbzGTwAD7IZeXV8naY+acqfJHkqNcM=
+    - secure: AKEwsgqOoTNdZX+IfmPgzRtpWyIXu7dObFmJ7gQgDx10GQeX+SDUXFbtIQ9S58i52E799oOGu9lK8cSUqHLn32/SB0bYorP0dwBV4SMWmR6QfY09ZlV4gEjfVpFOY35e7ayHkecHdtsMUW9KQenb2+dvdFYg3QmQX9ejNzxoXUBn9hZGs8ovmy3PjfMT1vbdLmv/EDuWuv/qZ4NouxGdquQXONzydl2LW662rwZtkGPrpz4h6JiZX//xemyhvRgyM9H7XJo8y91dXPz/sJJjbfvkOJFti6T+EtivvTsdU0z3FtWsqOeVzXYmtM+cJBfy6zvs+q67c08XLSPWYvj4CLN4khLspKY1TW3dlEOaDI61WazbRL3A+PR48lv1Nlg06+DaUIkbf3109sdRJ7GkXFCGFSMdYjy3CUW5PjOlIj48lUHqe07kMGI2j90gi2RWnVW2V3RPGG5YoUlz5HxItwthknMAGdNOBrL4ibhOztjOBp+4QgkJt92DIFTUD/BBneehB3aQVzeylXkk9DPOsidZifFrN1ZkR/O3PwNl2qF52OdAUs6J2SFRxDh0zWuW6ShwcknoSUyoHXTwY31dkxMmwM7huUl9kUffrsXfh3QxbRivonm5rLXiR6IniemsxO4Qbk+qeBfQc5+JrsnpKLfe5FvRlErzS9cb8gSaXDg=
+    - secure: sLdLwx7RW9atyvdTOKY1rxvUAbKcQvc+eJ62vVjTn9BiSw4DN/jtfhJiI2hmUq7eg+gUzanc01vJ2NpCSsKY3csIQptTe4yUTc7+3MudQNssdtWigTzAmW9C9mpEMCfvjWezjQEhWrgb3gNB68kOYXjlUTmE9T9UMoGQu6GoeACdFz5hFhQWM75++oA5/5CMvtXx8QpCTMvks6VxEXl1r9lK/LX20QxaLquFIgAojGSQ/9O6HkfnHwKYlkX9mjZVCui83QPRIKiFg/uLfb92pxIZnfRzt4RImbcO+yQgN+qArxoEQHt6rXmOJ9nQhZkUpfXj0b0Clz+nNhCV5ra9DBwE7g6BtZnVBDEGSZGo/X7cT+b5GcGTUHJfM1weMAT6b8YrlKZcy7ftVlRcYudgeOYono/q6mMbO7L1b//nepN6s/iuXEjiV8Gp14Dw3yzH+b2QsHbmUj6Lj93Dm2vs8FQotaXa2afeH51rhk/Fj9SM8UEps6Fk/FYsXF5l9QkUCGS7ghwYxOazbe9ljRj5BJ1kUEeH4VMtYhqhld4S0NMwfUX9Cg51SA34bgx5tI67gaBziZbQCo7dpg7rTTCP0q10Qiq9krY/r+bOanV5QnPtyR8gC2sQTqd8j6krUaDw8vrH0Qgewvqkr4OJsPZVWsIpafaPXR01NLn5c7ph23k=
     - COMMIT=${TRAVIS_COMMIT::8}
 
 before_cache:
@@ -20,13 +19,13 @@ before_cache:
 
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
 
 before_install:
   - chmod +x gradlew
 
-script: ./gradlew build
+script: "./gradlew build"
 
 after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
