@@ -6,9 +6,9 @@ spring:
       enabled: true
       failFast: true
       retry:
-        initialInterval: 1500
-        maxInterval: 5000
-        maxAttempts: 5
+        initialInterval: 5000
+        maxInterval: 60000
+        maxAttempts: 23
         multiplier: 1.5
       discovery:
         enabled: true
